@@ -1,0 +1,6 @@
+{
+  "name": "WAVICA 2.0 — Business Plan & Pitch Deck Investisseurs & Passeport Talent",
+  "description": "Business plan exécutif, modèle financier interactif et pitch deck d'investissement pour WAVICA 2.0 — Plateforme IA de récupération acoustique adaptative (Dossier Passeport Talent France & Investisseurs).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
