@@ -1,21 +1,151 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WAVICA 2.0 — Business Plan & Pitch Deck Investisseurs & Passeport Talent</title>
-    <meta name="description" content="Business plan exécutif, modèle financier interactif et pitch deck d'investissement pour WAVICA 2.0 — Plateforme IA de récupération acoustique adaptative (Dossier Passeport Talent France & Investisseurs)." />
-    <meta property="og:title" content="WAVICA 2.0 — Business Plan & Pitch Deck Investisseurs & Passeport Talent" />
-    <meta property="og:description" content="Business plan exécutif, modèle financier interactif et pitch deck d'investissement pour WAVICA 2.0 — Plateforme IA de récupération acoustique adaptative (Dossier Passeport Talent France & Investisseurs)." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-slate-950 text-slate-100 antialiased selection:bg-teal-500 selection:text-slate-950">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WAVICA — Adaptive Personal Recovery</title>
+<style>
+:root{
+  --navy:#10275a; --blue:#147fd1; --cyan:#20d6c5; --bg:#f5f8fc;
+  --card:#fff; --muted:#68748a; --line:#e5ebf3; --shadow:0 14px 40px rgba(16,39,90,.09);
+}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:#17233d}
+.app{display:flex;min-height:100vh}.side{width:250px;background:#fff;border-right:1px solid var(--line);padding:22px 16px;position:fixed;inset:0 auto 0 0}
+.logo{width:205px;height:auto;display:block;margin:0 auto 25px}.tag{font-size:11px;color:var(--muted);text-align:center;margin:-12px 0 25px;letter-spacing:.08em;text-transform:uppercase}
+.nav button{width:100%;border:0;background:transparent;text-align:left;padding:12px 13px;border-radius:12px;margin:3px 0;color:#536078;font-size:14px;cursor:pointer}.nav button.active,.nav button:hover{background:#eef7ff;color:var(--navy);font-weight:700}
+.sidefoot{position:absolute;bottom:18px;left:18px;right:18px;font-size:11px;color:#8994a7;line-height:1.45}
+.main{margin-left:250px;max-width:1180px;width:calc(100% - 250px);padding:30px 38px 60px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.hello h1{margin:0;font-size:28px;color:var(--navy)}.hello p{margin:5px 0;color:var(--muted);font-size:14px}
+.lang select{border:1px solid var(--line);background:#fff;padding:9px 12px;border-radius:10px;color:var(--navy)}
+.hero{background:linear-gradient(135deg,#fff,#edf8ff);border:1px solid #e1eef8;border-radius:22px;padding:25px;box-shadow:var(--shadow);display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.hero h2{margin:0 0 10px;font-size:22px;color:var(--navy)}.hero p{color:#58657b;line-height:1.55;margin:0 0 18px}
+.pill{display:inline-flex;align-items:center;gap:7px;background:#e9fbf8;color:#087d71;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:700}.dot{width:7px;height:7px;background:var(--cyan);border-radius:50%}
+.action{border:0;border-radius:13px;background:var(--navy);color:#fff;padding:12px 17px;font-weight:700;cursor:pointer}.action:hover{opacity:.92}
+.ring{background:#fff;border-radius:18px;border:1px solid var(--line);padding:20px;display:flex;align-items:center;justify-content:center;min-height:170px}
+.ringvisual{width:108px;height:108px;border-radius:50%;border:12px solid #dbe8f5;box-shadow:inset 0 0 0 8px #fff,0 0 0 5px #eaf5ff;display:flex;align-items:center;justify-content:center;color:var(--navy);font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:17px;box-shadow:0 6px 20px rgba(16,39,90,.04)}.metric .label{font-size:12px;color:var(--muted)}.metric .value{font-size:25px;font-weight:800;color:var(--navy);margin:6px 0}.metric small{color:#148a79;font-size:11px}
+.section{margin-top:25px}.section h3{font-size:18px;color:var(--navy);margin:0 0 12px}
+.loop{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;min-height:110px}.step b{display:block;color:var(--navy);font-size:13px;margin-bottom:6px}.step span{font-size:11px;color:var(--muted);line-height:1.4}
+.page{display:none}.page.active{display:block}.back{background:none;border:0;color:var(--blue);cursor:pointer;padding:0;margin-bottom:14px}
+.insight{border-left:4px solid var(--cyan);background:#fff;padding:20px;border-radius:0 15px 15px 0;box-shadow:var(--shadow)}.insight strong{color:var(--navy)}
+.choice{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:15px}.choice button{border:1px solid var(--line);background:#fff;border-radius:15px;padding:17px;text-align:left;cursor:pointer}.choice button:hover{border-color:var(--cyan);box-shadow:0 8px 24px rgba(32,214,197,.12)}.choice b{display:block;color:var(--navy);margin-bottom:5px}.choice span{font-size:12px;color:var(--muted)}
+.notice{background:#f0f7ff;border:1px solid #dcecff;padding:14px;border-radius:13px;font-size:12px;color:#52627b;line-height:1.5;margin-top:15px}
+.progress{height:8px;background:#eaf0f6;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:68%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:99px}
+@media(max-width:850px){.side{width:190px}.main{margin-left:190px;width:calc(100% - 190px);padding:22px}.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.loop{grid-template-columns:1fr 1fr}.choice{grid-template-columns:1fr}}
+@media(max-width:620px){.side{position:static;width:100%;height:auto;border-right:0;border-bottom:1px solid var(--line)}.app{display:block}.main{margin:0;width:100%}.sidefoot{position:static;margin-top:15px}.logo{margin-bottom:5px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <img class="logo" src="wavica-logo.jpg" alt="WAVICA">
+  <div class="tag">Your health · Your future</div>
+  <nav class="nav">
+    <button class="active" data-page="home" data-i18n="navHome">◉ Overview</button>
+    <button data-page="insight" data-i18n="navInsight">✦ Today's insight</button>
+    <button data-page="recovery" data-i18n="navRecovery">◌ Recovery</button>
+    <button data-page="progress" data-i18n="navProgress">↗ My patterns</button>
+    <button data-page="about" data-i18n="navAbout">⌁ How WAVICA works</button>
+  </nav>
+  <div class="sidefoot" data-i18n="privacy">Wellbeing only · No diagnosis · You control your data</div>
+</aside>
 
+<main class="main">
+  <div class="top">
+    <div class="hello"><h1 data-i18n="title">Good morning, Anna</h1><p data-i18n="subtitle">WAVICA turns your personal signals into one useful next step.</p></div>
+    <div class="lang"><select id="lang"><option value="fr">Français</option><option value="en">English</option><option value="ru">Русский</option></select></div>
+  </div>
+
+  <section id="home" class="page active">
+    <div class="hero">
+      <div>
+        <span class="pill"><span class="dot"></span><span data-i18n="connected">Oura connected</span></span>
+        <h2 data-i18n="heroTitle">Your pattern changed slightly</h2>
+        <p data-i18n="heroText">WAVICA compares recent signals with your own baseline. Your sleep was a little shorter while activity stayed above your recent average.</p>
+        <button class="action" onclick="showPage('insight')" data-i18n="seeInsight">See today's insight</button>
+      </div>
+      <div class="ring"><div class="ringvisual">W</div></div>
+    </div>
+
+    <div class="grid">
+      <div class="card metric"><div class="label" data-i18n="sleep">Sleep</div><div class="value">6h 42</div><small>−38 min vs. personal baseline</small></div>
+      <div class="card metric"><div class="label">HRV</div><div class="value">41 ms</div><small>−12% vs. your recent range</small></div>
+      <div class="card metric"><div class="label" data-i18n="activity">Activity</div><div class="value">8.4k</div><small>+18% vs. your recent average</small></div>
+      <div class="card metric"><div class="label" data-i18n="energy">Energy</div><div class="value">6/10</div><small data-i18n="selfReported">self-reported</small></div>
+    </div>
+
+    <div class="section"><h3 data-i18n="loopTitle">The WAVICA adaptive loop</h3>
+      <div class="loop">
+        <div class="step"><b data-i18n="s1">1 · Detect</b><span data-i18n="s1t">Find a meaningful change against your own history.</span></div>
+        <div class="step"><b data-i18n="s2">2 · Context</b><span data-i18n="s2t">Add optional context: workload, travel, training, sleep.</span></div>
+        <div class="step"><b data-i18n="s3">3 · Act</b><span data-i18n="s3t">Choose one short, low-friction recovery action.</span></div>
+        <div class="step"><b data-i18n="s4">4 · Recheck</b><span data-i18n="s4t">Tell WAVICA whether it felt useful.</span></div>
+        <div class="step"><b data-i18n="s5">5 · Learn</b><span data-i18n="s5t">Your future suggestions become more personal.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="insight" class="page">
+    <button class="back" onclick="showPage('home')" data-i18n="back">← Back</button>
+    <div class="card"><h2 data-i18n="insightTitle">Today's personal insight</h2>
+      <div class="insight"><strong data-i18n="insightLead">A small recovery experiment may fit today.</strong><p data-i18n="insightText">Your recent sleep is below your usual pattern and activity is higher. This does not mean something is wrong. It is simply a change worth observing.</p></div>
+      <div class="choice">
+        <button onclick="completeAction(this)"><b data-i18n="opt1">7-min downshift</b><span data-i18n="opt1t">Guided breathing + low-stimulation audio.</span></button>
+        <button onclick="completeAction(this)"><b data-i18n="opt2">10-min reset</b><span data-i18n="opt2t">Gentle movement + recovery audio.</span></button>
+        <button onclick="completeAction(this)"><b data-i18n="opt3">Quiet evening</b><span data-i18n="opt3t">A short wind-down routine before sleep.</span></button>
+      </div>
+      <div class="notice" data-i18n="notice">WAVICA does not diagnose or treat medical conditions. It uses your personal history as a wellbeing reference, not as a medical range.</div>
+    </div>
+  </section>
+
+  <section id="recovery" class="page">
+    <button class="back" onclick="showPage('home')" data-i18n="back">← Back</button>
+    <div class="card"><h2 data-i18n="recoveryTitle">Recovery library</h2><p data-i18n="recoveryText">Short practices designed to be easy to start and easy to finish.</p>
+      <div class="choice">
+        <button onclick="startTimer(this)"><b>Breathing · 5 min</b><span>Slow guided breathing</span></button>
+        <button onclick="startTimer(this)"><b>Focus reset · 3 min</b><span>Low-stimulation audio</span></button>
+        <button onclick="startTimer(this)"><b>Evening wind-down · 8 min</b><span>Gentle relaxation</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="progress" class="page">
+    <button class="back" onclick="showPage('home')" data-i18n="back">← Back</button>
+    <div class="card"><h2 data-i18n="patternsTitle">What WAVICA is learning about you</h2>
+      <p data-i18n="patternsText">The prototype builds a personal history rather than comparing you with a generic “normal”.</p>
+      <div class="section"><b data-i18n="p1">Sleep regularity</b><div class="progress"><i style="width:72%"></i></div></div>
+      <div class="section"><b data-i18n="p2">Recovery practice consistency</b><div class="progress"><i style="width:54%"></i></div></div>
+      <div class="section"><b data-i18n="p3">Personal feedback history</b><div class="progress"><i style="width:81%"></i></div></div>
+    </div>
+  </section>
+
+  <section id="about" class="page">
+    <button class="back" onclick="showPage('home')" data-i18n="back">← Back</button>
+    <div class="card"><h2 data-i18n="aboutTitle">WAVICA complements your wearable</h2>
+      <p data-i18n="aboutText">Oura, Apple Watch and other devices are excellent at sensing and reporting. WAVICA is designed as the adaptive action layer: it detects meaningful personal change, adds context, proposes one practical experiment, checks the outcome and learns from your feedback.</p>
+      <div class="notice" data-i18n="aboutNote">This demo uses synthetic example data. It is a product prototype, not a medical device.</div>
+    </div>
+  </section>
+</main>
+</div>
+
+<script>
+const T={
+fr:{navHome:"◉ Vue d’ensemble",navInsight:"✦ Insight du jour",navRecovery:"◌ Récupération",navProgress:"↗ Mes rythmes",navAbout:"⌁ Comment fonctionne WAVICA",privacy:"Bien-être uniquement · Pas de diagnostic · Vous contrôlez vos données",title:"Bonjour, Anna",subtitle:"WAVICA transforme vos signaux personnels en une prochaine action utile.",connected:"Oura connecté",heroTitle:"Votre dynamique a légèrement changé",heroText:"WAVICA compare vos signaux récents à votre propre référence. Votre sommeil est un peu plus court tandis que votre activité reste au-dessus de votre moyenne récente.",seeInsight:"Voir l’insight du jour",sleep:"Sommeil",activity:"Activité",energy:"Énergie",selfReported:"auto-évaluée",loopTitle:"La boucle adaptative WAVICA",s1:"1 · Détecter",s1t:"Repérer un changement significatif par rapport à votre historique.",s2:"2 · Contextualiser",s2t:"Ajouter, si vous le souhaitez, le contexte : travail, voyage, entraînement, sommeil.",s3:"3 · Agir",s3t:"Choisir une seule action de récupération, courte et simple.",s4:"4 · Vérifier",s4t:"Indiquer à WAVICA si l’action vous a été utile.",s5:"5 · Apprendre",s5t:"Les prochaines suggestions deviennent plus personnelles.",back:"← Retour",insightTitle:"Votre insight personnel",insightLead:"Un petit experiment de récupération peut être pertinent aujourd’hui.",insightText:"Votre sommeil récent est inférieur à votre rythme habituel et votre activité est plus élevée. Cela ne signifie pas qu’il y a un problème : c’est simplement un changement à observer.",opt1:"7 min · retour au calme",opt1t:"Respiration guidée + audio à faible stimulation.",opt2:"10 min · reset",opt2t:"Mouvement doux + audio de récupération.",opt3:"Soirée calme",opt3t:"Une courte routine de retour au calme avant le sommeil.",notice:"WAVICA ne diagnostique ni ne traite les maladies. Votre historique personnel sert de référence de bien-être, pas de norme médicale.",recoveryTitle:"Bibliothèque récupération",recoveryText:"Des pratiques courtes, faciles à commencer et à terminer.",patternsTitle:"Ce que WAVICA apprend sur vous",patternsText:"Le prototype construit une histoire personnelle au lieu de vous comparer à une “norme” générique.",p1:"Régularité du sommeil",p2:"Régularité des pratiques",p3:"Historique de feedback",aboutTitle:"WAVICA complète votre wearable",aboutText:"Oura, Apple Watch et autres appareils sont excellents pour mesurer et restituer des données. WAVICA ajoute une couche adaptative d’action : détecter un changement personnel, ajouter du contexte, proposer une expérience simple, vérifier le résultat et apprendre du feedback.",aboutNote:"Cette démo utilise des données synthétiques. Il s’agit d’un prototype produit, pas d’un dispositif médical."},
+en:{navHome:"◉ Overview",navInsight:"✦ Today's insight",navRecovery:"◌ Recovery",navProgress:"↗ My patterns",navAbout:"⌁ How WAVICA works",privacy:"Wellbeing only · No diagnosis · You control your data",title:"Good morning, Anna",subtitle:"WAVICA turns your personal signals into one useful next step.",connected:"Oura connected",heroTitle:"Your pattern changed slightly",heroText:"WAVICA compares recent signals with your own baseline. Your sleep was a little shorter while activity stayed above your recent average.",seeInsight:"See today's insight",sleep:"Sleep",activity:"Activity",energy:"Energy",selfReported:"self-reported",loopTitle:"The WAVICA adaptive loop",s1:"1 · Detect",s1t:"Find a meaningful change against your own history.",s2:"2 · Context",s2t:"Add optional context: workload, travel, training, sleep.",s3:"3 · Act",s3t:"Choose one short, low-friction recovery action.",s4:"4 · Recheck",s4t:"Tell WAVICA whether it felt useful.",s5:"5 · Learn",s5t:"Your future suggestions become more personal.",back:"← Back",insightTitle:"Today's personal insight",insightLead:"A small recovery experiment may fit today.",insightText:"Your recent sleep is below your usual pattern and activity is higher. This does not mean something is wrong. It is simply a change worth observing.",opt1:"7-min downshift",opt1t:"Guided breathing + low-stimulation audio.",opt2:"10-min reset",opt2t:"Gentle movement + recovery audio.",opt3:"Quiet evening",opt3t:"A short wind-down routine before sleep.",notice:"WAVICA does not diagnose or treat medical conditions. It uses your personal history as a wellbeing reference, not as a medical range.",recoveryTitle:"Recovery library",recoveryText:"Short practices designed to be easy to start and easy to finish.",patternsTitle:"What WAVICA is learning about you",patternsText:"The prototype builds a personal history rather than comparing you with a generic “normal”.",p1:"Sleep regularity",p2:"Recovery practice consistency",p3:"Personal feedback history",aboutTitle:"WAVICA complements your wearable",aboutText:"Oura, Apple Watch and other devices are excellent at sensing and reporting. WAVICA is designed as the adaptive action layer: it detects meaningful personal change, adds context, proposes one practical experiment, checks the outcome and learns from your feedback.",aboutNote:"This demo uses synthetic example data. It is a product prototype, not a medical device."},
+ru:{navHome:"◉ Обзор",navInsight:"✦ Insight дня",navRecovery:"◌ Восстановление",navProgress:"↗ Мои паттерны",navAbout:"⌁ Как работает WAVICA",privacy:"Только wellbeing · Без диагностики · Вы контролируете свои данные",title:"Доброе утро, Анна",subtitle:"WAVICA превращает ваши персональные сигналы в одно полезное следующее действие.",connected:"Oura подключён",heroTitle:"Ваш персональный паттерн немного изменился",heroText:"WAVICA сравнивает свежие данные с вашей собственной базовой динамикой. Сон немного короче, а активность выше недавней средней.",seeInsight:"Посмотреть insight дня",sleep:"Сон",activity:"Активность",energy:"Энергия",selfReported:"самооценка",loopTitle:"Адаптивный цикл WAVICA",s1:"1 · Обнаружить",s1t:"Найти значимое изменение относительно вашей истории.",s2:"2 · Контекст",s2t:"При желании добавить контекст: работа, поездка, тренировки, сон.",s3:"3 · Действие",s3t:"Выбрать одно короткое и простое действие для восстановления.",s4:"4 · Проверить",s4t:"Сообщить WAVICA, было ли действие полезным.",s5:"5 · Учиться",s5t:"Следующие рекомендации становятся более персональными.",back:"← Назад",insightTitle:"Ваш персональный insight",insightLead:"Сегодня можно попробовать небольшой recovery-эксперимент.",insightText:"Ваш недавний сон ниже обычного уровня, а активность выше. Это не означает, что что-то не так — это изменение, которое стоит понаблюдать.",opt1:"7 мин · замедление",opt1t:"Дыхание с сопровождением + спокойное аудио.",opt2:"10 мин · reset",opt2t:"Мягкое движение + аудио для восстановления.",opt3:"Спокойный вечер",opt3t:"Короткая вечерняя практика перед сном.",notice:"WAVICA не диагностирует и не лечит заболевания. Личная история используется как ориентир wellbeing, а не как медицинская норма.",recoveryTitle:"Библиотека восстановления",recoveryText:"Короткие практики, которые легко начать и завершить.",patternsTitle:"Что WAVICA узнаёт о вас",patternsText:"Прототип строит персональную историю, а не сравнивает вас с абстрактной “нормой”.",p1:"Регулярность сна",p2:"Регулярность практик",p3:"История обратной связи",aboutTitle:"WAVICA дополняет ваш wearable",aboutText:"Oura, Apple Watch и другие устройства отлично измеряют и показывают данные. WAVICA добавляет адаптивный слой действий: замечает значимое изменение, добавляет контекст, предлагает небольшой эксперимент, проверяет результат и учится на обратной связи.",aboutNote:"Демо использует синтетические данные. Это продуктовый прототип, а не медицинское устройство."}
+};
+function applyLang(){
+ const lang=document.getElementById('lang').value, d=T[lang];
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(d[k])el.textContent=d[k]});
+ document.documentElement.lang=lang;
+}
+document.getElementById('lang').addEventListener('change',applyLang);
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+function completeAction(btn){btn.style.borderColor='#20d6c5';btn.style.background='#f0fffc';btn.querySelector('b').textContent='✓ '+btn.querySelector('b').textContent;setTimeout(()=>showPage('progress'),500)}
+function startTimer(btn){alert('Prototype demo: this would open the audio session / timer.');}
+applyLang();
+</script>
+</body>
+</html>
